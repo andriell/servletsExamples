@@ -47,4 +47,13 @@
         <servlet-name>context-demo</servlet-name>
         <url-pattern>/context-demo</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>write-context</servlet-name>
+        <servlet-class>ru.loryPress.WriteContextServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>write-context</servlet-name>
+        <url-pattern>/write-context</url-pattern>
+    </servlet-mapping>
 </web-app>
