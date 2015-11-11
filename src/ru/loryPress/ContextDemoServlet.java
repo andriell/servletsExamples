@@ -1,6 +1,9 @@
 package ru.loryPress;
 
+import org.apache.catalina.webresources.StandardRoot;
+
 import javax.servlet.*;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
@@ -21,8 +24,8 @@ public class ContextDemoServlet implements Servlet {
         return servletConfig;
     }
 
-    public String htmlEncode(String str) {
-        return str.replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+    public Object htmlEncode(Object o) {
+        return o.toString().replaceAll("<", "&lt;").replaceAll(">", "&gt;");
     }
 
     @Override
@@ -40,7 +43,7 @@ public class ContextDemoServlet implements Servlet {
             out.print("<tr><td><b>");
             out.println(attributeName);
             out.print("</b></td><td><pre>");
-            out.println(( servletContext.getAttribute(attributeName)));
+            out.println(htmlEncode(servletContext.getAttribute(attributeName)));
             out.print("</pre></td></tr>");
         }
         out.print("<table>");
