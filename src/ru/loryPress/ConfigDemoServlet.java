@@ -34,7 +34,7 @@ public class ConfigDemoServlet implements Servlet {
         while (parameters.hasMoreElements()) {
             String parameterName = (String) parameters.nextElement();
             out.println("Parameter name: " + parameterName);
-            out.println("Parameter value: " + servletConfig.getInitParameter(parameterName));
+            out.println("Parameter value: " + getServletConfig().getInitParameter(parameterName));
         }
     }
 

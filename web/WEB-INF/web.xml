@@ -38,4 +38,13 @@
         <servlet-name>config-demo</servlet-name>
         <url-pattern>/config-demo</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>context-demo</servlet-name>
+        <servlet-class>ru.loryPress.ContextDemoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>context-demo</servlet-name>
+        <url-pattern>/context-demo</url-pattern>
+    </servlet-mapping>
 </web-app>
