@@ -21,4 +21,21 @@
         <servlet-name>primitive</servlet-name>
         <url-pattern>/primitive</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>config-demo</servlet-name>
+        <servlet-class>ru.loryPress.ConfigDemoServlet</servlet-class>
+        <init-param>
+            <param-name>adminEmail</param-name>
+            <param-value>admin@admin.com</param-value>
+        </init-param>
+        <init-param>
+            <param-name>adminContactNumber</param-name>
+            <param-value>044576657567</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>config-demo</servlet-name>
+        <url-pattern>/config-demo</url-pattern>
+    </servlet-mapping>
 </web-app>
