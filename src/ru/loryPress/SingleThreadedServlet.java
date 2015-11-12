@@ -1,42 +1,52 @@
 package ru.loryPress;
 
-import javax.servlet.GenericServlet;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import java.io.*;
 
 /**
  * Created by andriell on 12.11.15.
  */
-public class SingleThreadedServlet extends GenericServlet {
+public class SingleThreadedServlet implements Servlet, SingleThreadModel {
+    public int counter = 0;
+
+    private  ServletConfig servletConfig;
+
+    @Override
+    public void init(ServletConfig servletConfig) throws ServletException {
+        this.servletConfig = servletConfig;
+    }
+
+    @Override
+    public ServletConfig getServletConfig() {
+        return servletConfig;
+    }
+
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
-        int counter = 0;
+        //int counter = 100500;
 
-        File file = new File(getServletContext().getAttribute("javax.servlet.context.tempdir") + "/counter.txt");
-
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            counter = Integer.parseInt(reader.readLine());
-            reader.close();
-        } catch (Exception ignored) {
-        }
+        System.out.println("service start");
 
         try {
             Thread.sleep(6000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
         counter++;
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-        writer.write(Integer.toString(counter));
-        writer.close();
         PrintWriter out = servletResponse.getWriter();
 
         out.println(counter);
+        System.out.println("service end");
+    }
+
+    @Override
+    public String getServletInfo() {
+        return null;
+    }
+
+    @Override
+    public void destroy() {
 
     }
 }
