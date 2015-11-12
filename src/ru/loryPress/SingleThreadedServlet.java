@@ -6,7 +6,7 @@ import java.io.*;
 /**
  * Created by andriell on 12.11.15.
  */
-public class SingleThreadedServlet implements Servlet, SingleThreadModel {
+public class SingleThreadedServlet implements Servlet {
     public int counter = 0;
 
     private  ServletConfig servletConfig;
