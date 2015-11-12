@@ -56,4 +56,13 @@
         <servlet-name>write-context</servlet-name>
         <url-pattern>/write-context</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>single-thread</servlet-name>
+        <servlet-class>ru.loryPress.SingleThreadedServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>single-thread</servlet-name>
+        <url-pattern>/single-thread</url-pattern>
+    </servlet-mapping>
 </web-app>
