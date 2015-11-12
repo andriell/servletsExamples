@@ -23,9 +23,7 @@ public class SingleThreadedServlet implements Servlet {
 
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
-        //int counter = 100500;
-
-        System.out.println("service start");
+        System.out.println("service start " + Thread.currentThread().getName());
 
         try {
             Thread.sleep(6000);
@@ -37,7 +35,7 @@ public class SingleThreadedServlet implements Servlet {
         PrintWriter out = servletResponse.getWriter();
 
         out.println(counter);
-        System.out.println("service end");
+        System.out.println("service end " + Thread.currentThread().getName());
     }
 
     @Override
