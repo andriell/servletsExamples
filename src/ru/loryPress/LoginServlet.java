@@ -23,6 +23,12 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
+        if (login != null && password != null && login.equals("admin") && password.equals("password")) {
+            req.getRequestDispatcher("/context-demo").forward(req, resp);
+        } else {
+            resp.sendRedirect("/login-form.html");
+        }
     }
 }
