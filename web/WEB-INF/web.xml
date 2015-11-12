@@ -74,4 +74,13 @@
         <servlet-name>login</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>req-info</servlet-name>
+        <servlet-class>ru.loryPress.RequestInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>req-info</servlet-name>
+        <url-pattern>/req-info</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -26,7 +26,7 @@ public class LoginServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         if (login != null && password != null && login.equals("admin") && password.equals("password")) {
-            req.getRequestDispatcher("/context-demo").forward(req, resp);
+            req.getRequestDispatcher("/req-info?t[]=100500&t[]=5").forward(req, resp);
         } else {
             resp.sendRedirect("/login-form.html");
         }
