@@ -13,7 +13,7 @@ import java.sql.*;
  * Created by andriell on 13.11.15.
  */
 public class SQLToolServlet extends HttpServlet {
-    String username = "username";
+    String username = "root";
     String password = "password";
     String url = "jdbc:mysql://localhost:3306/test";
 
@@ -34,15 +34,18 @@ public class SQLToolServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        PrintWriter out = resp.getWriter();
         try {
-            PrintWriter out = resp.getWriter();
-
             String sql = req.getParameter("sql");
+            if (sql == null) {
+                sql = "";
+            }
+            String sqlUp = sql.toUpperCase().trim();
 
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
 
-            if (sql.toUpperCase().trim().startsWith("SELECT")) {
+            if (sqlUp.startsWith("SELECT") || sqlUp.startsWith("SHOW")) {
                 ResultSet resultSet = statement.executeQuery(sql);
                 ResultSetMetaData metaData = resultSet.getMetaData();
                 int columnCount = metaData.getColumnCount();
@@ -68,7 +71,7 @@ public class SQLToolServlet extends HttpServlet {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            out.println(e.toString());
         }
     }
 

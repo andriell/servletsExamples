@@ -18,7 +18,13 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        sendLoginForm(req, resp);
+        String login = (String) req.getSession().getAttribute("login");
+        login = login == null ? "" : login;
+        if (login.equals("admin")) {
+            req.getRequestDispatcher("/req-info?t[]=100500&t[]=5").forward(req, resp);
+        } else {
+            sendLoginForm(req, resp);
+        }
     }
 
     @Override
@@ -26,7 +32,8 @@ public class LoginServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         if (login != null && password != null && login.equals("admin") && password.equals("password")) {
-            req.getRequestDispatcher("/req-info?t[]=100500&t[]=5").forward(req, resp);
+            req.getSession(true).setAttribute("login", "admin");
+            resp.sendRedirect("/login");
         } else {
             resp.sendRedirect("/login-form.html");
         }
