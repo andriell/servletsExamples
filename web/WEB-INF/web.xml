@@ -83,4 +83,13 @@
         <servlet-name>req-info</servlet-name>
         <url-pattern>/req-info</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>sql-tools</servlet-name>
+        <servlet-class>ru.loryPress.SQLToolServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sql-tools</servlet-name>
+        <url-pattern>/sql-tools</url-pattern>
+    </servlet-mapping>
 </web-app>
