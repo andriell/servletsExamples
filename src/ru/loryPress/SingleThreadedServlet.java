@@ -25,16 +25,17 @@ public class SingleThreadedServlet implements Servlet {
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
         System.out.println("service start " + Thread.currentThread().getName());
 
+        int i = counter;
         try {
             Thread.sleep(6000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        counter++;
+        counter = i + 1;
 
         PrintWriter out = servletResponse.getWriter();
-
         out.println(counter);
+
         System.out.println("service end " + Thread.currentThread().getName());
     }
 
