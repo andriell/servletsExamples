@@ -4,6 +4,19 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+    <filter>
+        <filter-name>Login</filter-name>
+        <filter-class>ru.loryPress.LoginFilter</filter-class>
+        <init-param>
+            <param-name>login</param-name>
+            <param-value>admin</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>Login</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>Testing</servlet-name>
         <servlet-class>ru.loryPress.TestingServlet</servlet-class>
