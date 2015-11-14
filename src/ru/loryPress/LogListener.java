@@ -15,6 +15,12 @@ public class LogListener implements ServletContextListener,
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         System.out.println("ServletContextListener.contextInitialized");
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

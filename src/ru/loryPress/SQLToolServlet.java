@@ -25,7 +25,6 @@ public class SQLToolServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
