@@ -17,6 +17,15 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <filter>
+        <filter-name>trim</filter-name>
+        <filter-class>ru.loryPress.TrimFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>trim</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>Testing</servlet-name>
         <servlet-class>ru.loryPress.TestingServlet</servlet-class>
