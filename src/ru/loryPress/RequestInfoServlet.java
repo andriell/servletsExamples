@@ -38,6 +38,14 @@ public class RequestInfoServlet extends HttpServlet {
             }
             out.println(paramName + " = " + paramValue);
         }
+
+        out.println();
+        out.println("Attributes");
+        Enumeration<String> getAttr = req.getAttributeNames();
+        while(getAttr.hasMoreElements()) {
+            String paramName = getAttr.nextElement();
+            out.println(paramName + " = " + req.getAttribute(paramName));
+        }
     }
 
     @Override

@@ -38,6 +38,8 @@ public class TrimFilter implements Filter {
             req.setAttribute(paramName + "_all", paramValues);
             req.setAttribute(paramName + "_first", paramValues[0]);
         }
+
+        filterChain.doFilter(req, servletResponse);
     }
 
     @Override
